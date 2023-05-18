@@ -114,7 +114,7 @@ let fireworks = [];
 // Create new firework every 2 seconds
 setInterval(() => {
   fireworks.push(new Firework());
-}, 2000);
+}, prompt("Set ms per firework"));
 
 // Update canvas every frame
 function animate() {
