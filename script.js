@@ -21,7 +21,7 @@ class Firework {
     };
     this.gravity = 0.2;
     this.opacity = 1;
-    this.explosionRadius = 10;
+    this.explosionRadius = Math.random() * 5 + 7.5;
     this.isExploded = false;
     this.particles = [];
   }
@@ -104,22 +104,23 @@ class Particle {
     this.x += this.velocity.x;
 
     // Reduce particle opacity over time
-    this.opacity -= 0.01;
+    this.opacity -= Math.random()*0.001 + 0.0095;
   }
 }
 
 // Create array to hold fireworks
 let fireworks = [];
+let interval = prompt() * 1000
 
 // Create new firework every 2 seconds
 setInterval(() => {
   fireworks.push(new Firework());
-}, prompt("Set ms per firework"));
+}, interval + Math.random()*800 - 400);
 
 // Update canvas every frame
 function animate() {
   requestAnimationFrame(animate);
-  ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+  ctx.fillStyle = "rgba(0, 0, 15, 0.1)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   for (let i = 0; i < fireworks.length; i++) {
